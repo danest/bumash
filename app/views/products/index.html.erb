@@ -1,0 +1,18 @@
+<p class = "front">
+	Welcome to Binghamton University Face Mash. Rate and compare your classmates.<br />
+	This is only for Binghamton University students.
+</p>
+
+
+<%= form_for(:session, :url => sessions_path) do |f| %>
+	<div class="field">
+		<%= f.label :email %>
+		<%= f.text_field :email %>
+	</div>
+	<div class="actions">
+		<%= f.submit "Sign in" %>
+	</div>
+<% end %>
+<p>
+	New User? <%= link_to "Sign up now", signup_path %>
+</p>
