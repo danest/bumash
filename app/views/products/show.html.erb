@@ -2,7 +2,7 @@
 <% @products.each do |product| %>
 	
 	<div class ="images_picture">
-	<%= link_to (image_tag(product.photo.url, :size => "366x500")), product_path(product.id), :method => :put, :title => "Vote for this image"  %>
+	<%= link_to (image_tag(product.photo.url, :size => "366x480")), product_path(product.id), :method => :put, :title => "Vote for this image"  %>
 	<div class="vote awesome">
 	<%= link_to "Hotter", product_path(product.id), :method => :put, :class => "vote" %>
 	</div>

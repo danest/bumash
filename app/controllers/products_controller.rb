@@ -31,10 +31,10 @@ class ProductsController < ApplicationController
     @product = Product.create(params[:product])
     if @product.save
       flash.now[:success] = "Saved image upload another one or go browse"
-      render 'new'
+      redirect_to new_product_path , :notice => "Saved image upload another one or go browse"
     else
       flash.now[:error] = "Sorry it must be an JPG or PNG and less then 5MB"
-      render 'new'
+      redirect_to new_product_path, :notice => "Sorry it must be an JPG or PNG and less then 5MB"
     end
   end
   
