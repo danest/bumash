@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_filter :authenticate, :only => [:index, :new, :show, :top , :edit, :update, :create]
+  before_filter :authenticate, :only => [:new, :show, :top , :edit, :update, :create]
   def show
     @products = Product.all.sort_by {rand}[0..1]
   end
