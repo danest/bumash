@@ -1,7 +1,6 @@
 class ProductsController < ApplicationController
   
   before_filter :authenticate, :only => [:new, :show, :top , :edit, :update, :create]
-  before_filter :admin_user, :only => :top
   
   def show
     @products = Product.all.sort_by {rand}[0..1]
