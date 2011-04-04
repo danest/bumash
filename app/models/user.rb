@@ -14,5 +14,9 @@ class User < ActiveRecord::Base
     user = find_by_email(email)
     return user unless user.nil?   
   end
+  
+  def is_admin?
+    self.admin == true
+  end
          
 end

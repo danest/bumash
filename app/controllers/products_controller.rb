@@ -1,11 +1,20 @@
 class ProductsController < ApplicationController
+  
   before_filter :authenticate, :only => [:new, :show, :top , :edit, :update, :create]
+  before_filter :admin_user, :only => :top
+  
   def show
     @products = Product.all.sort_by {rand}[0..1]
   end
   
   def index 
+    
+  end
   
+  def destroy
+    Product.find(params[:id]).destroy
+    flash[:success] = "Image destroyed"
+    redirect_to root_path
   end
   
   def top
@@ -42,4 +51,6 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
   end
+  
+  
 end

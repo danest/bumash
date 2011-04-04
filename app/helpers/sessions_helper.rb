@@ -1,5 +1,9 @@
 module SessionsHelper
   
+  def admin_user
+     redirect_to(root_path) unless current_user.admin?
+   end
+   
   def sign_in(user)
     cookies.permanent.signed[:remember_token] = [user.id]
     self.current_user = user
@@ -30,10 +34,12 @@ module SessionsHelper
     redirect_to signin_path, :notice => "Please sign in to access this page"
   end
   
+
   private
   
-  def user_from_token
-    cookies.signed[:remember_token]
-  end
+    def user_from_token
+      cookies.signed[:remember_token]
+    end
+  
   
 end
